@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style id="mainStyle">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        html,
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #131313;
+            color: #fff;
+        }
+
+        @keyframes rainbow {
+
+            0%,
+            100% {
+                border-color: #f00;
+                color: #f00
+            }
+
+            20% {
+                border-color: #ffa600;
+                color: #ffa600
+            }
+
+            40% {
+                border-color: #ff0;
+                color: #ff0
+            }
+
+            60% {
+                border-color: #0f0;
+                color: #0f0
+            }
+
+            80% {
+                border-color: #00f;
+                color: #00f
+            }
+        }
+
+        #title {
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin-top: 25px;
+            margin-bottom: -5px;
+            font-size: 110px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #subTitle {
+            display: block;
+            margin-bottom: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 50px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #calculator {
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 25px;
+            border: 5px solid #fff;
+            padding: 10px;
+            width: 500px;
+            height: 700px;
+        }
+
+        #ansDisplay {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3px;
+            width: 485px;
+            height: 125px;
+            border-radius: 25px;
+            border: 5px solid #fff;
+            text-align: right;
+            overflow: scroll;
+        }
+
+        #ansDisplayText {
+            display: block;
+            margin-top: 5px;
+            margin-right: 20px;
+            margin-left: 20px;
+            font-size: 100px;
+        }
+
+        #buttonDisplay {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            width: 485px;
+            height: 540px;
+            border-radius: 25px;
+            border: 5px solid #fff;
+            text-align: left;
+
+        }
+
+        .calcButton {
+            margin-left: 5px;
+            margin-top: 10px;
+            width: 109.5px;
+            height: 96px;
+            border-radius: 25px;
+            font-size: 50px;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            background-color: #131313;
+            border: 5px solid #fff;
+        }
+
+        .calcButton:active {
+            color: #131313;
+            background-color: #fff;
+        }
+
+        .calcButton:focus {
+            outline: none;
+        }
+
+        #url {
+            color: blue;
+            text-decoration: none;
+        }
+
+        #rainbowContainer {
+            display: block;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            -webkit-user-select: none;
+            cursor: pointer;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            position: absolute;
+            right: 100px;
+            top: 50px;
+            font-size: 53.5px;
+        }
+
+        #rainbowCheckmark {
+            position: absolute;
+            border-radius: 12px;
+            height: 50px;
+            width: 50px;
+            border: 5px solid #fff;
+        }
+
+        #rainbowContainer input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        #rainbowContainer:hover input~#rainbowCheckmark {
+            border-color: #e8e8e8;
+        }
+
+        #rainbowContainer input:checked~#rainbowCheckmark {
+            border-color: #131313;
+        }
+
+        #rainbowText {
+            margin-right: 7px;
+        }
+
+        #rainbowCheckmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        #rainbowContainer input:checked~#rainbowCheckmark:after {
+            display: block;
+        }
+
+        #rainbowContainer #rainbowCheckmark:after {
+            left: 14.5px;
+            top: 2.5px;
+            width: 15px;
+            height: 30px;
+            border: solid;
+            animation: rainbow 1s infinite;
+            border-width: 0 5px 5px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <span id="title">Calculator</span>
+    <span id="subTitle">v0.1.0 | by <a id="url" href="https://hitthemoney.github.io/">hitthemoney</a></span>
+    <div id="calculator">
+        <div id="ansDisplay">
+            <span id="ansDisplayText">0</span>
+        </div>
+        <div id="buttonDisplay">
+            <button class="calcButton" type="button" onclick="updateAnsText(1)" style="margin-left: 10px;">1</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(2)">2</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(3)">3</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(4)">4</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(5)" style="margin-left: 10px;">5</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(6)">6</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(7)">7</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(8)">8</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(9)" style="margin-left: 10px;">9</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(0)">0</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('+')">+</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('-')">-</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('(')" style="margin-left: 10px;">(</button>
+            <button class="calcButton" type="button" onclick="updateAnsText(')')">)</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('*')">&times</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('/')">&divide</button>
+            <button class="calcButton" type="button" onclick="getAns()"
+                style="width: 229px; margin-left: 10px;">=</button>
+            <button class="calcButton" type="button" onclick="cButtonOnclick(this.innerHTML)" id="cButton">AC</button>
+            <button class="calcButton" type="button" onclick="updateAnsText('e')">e</button>
+        </div>
+    </div>
+    <label id="rainbowContainer">
+        <span id="rainbowText">Rainbow UI:</span>
+        <input id="rainbowCheckbox" type="checkbox" onclick="activateRainbow(this.checked)">
+        <span id="rainbowCheckmark"></span>
+    </label>
+</body>
+<script>
+    const rainbowCheckbox = document.getElementById("rainbowCheckbox");
+    const ansDisplayText = document.getElementById("ansDisplayText");
+    const cButton = document.getElementById("cButton");
+    var ansBool = false
+    var equation = ""
+    updateAnsText = (b) => {
+        if (ansDisplayText.innerHTML == "SYNTAX ERROR") {
+            ansDisplayText.innerHTML = "0";
+            ansDisplayText.style = ""
+        }
+        if (ansDisplayText.innerHTML == "0") {
+            ansDisplayText.innerHTML = "";
+            cButton.innerHTML = "CE"
+        }
+        if (ansBool == true && b !== "*" && b !== "/" && b !== "+" && b !== "-" && b !== "e" && b !== "(" && b !==
+            ")") {
+            b = "+" + b
+        }
+        if (ansBool == true && b !== 0) {
+            ansBool = false
+            cButton.innerHTML = "CE"
+        }
+        if (b == "0") {
+            cButton.innerHTML = "AC"
+        }
+        let b2 = b;
+        if (b == "*") {
+            b2 = "&times"
+        } else if (b == "/") {
+            b2 = "&divide"
+        } else if (b == "(") {
+            b = "*("
+        }
+        equation = equation + b
+        ansDisplayText.innerHTML = ansDisplayText.innerHTML + b2;
+    }
+    cButtonOnclick = (v) => {
+        if (v == "AC") {
+            ansDisplayText.innerHTML = "0";
+            ansDisplayText.style = ""
+            ansBool = false
+            cButton.innerHTML = "CE"
+            equation = ""
+        } else if (v == "CE") {
+            ansDisplayText.innerHTML = ansDisplayText.innerHTML.slice(0, -1)
+            equation = equation.slice(0, -1)
+        };
+        if (ansDisplayText.innerHTML == "" || ansDisplayText.innerHTML == "0") {
+            ansDisplayText.innerHTML = "0";
+            cButton.innerHTML = "AC";
+        };
+    }
+    getAns = () => {
+        try {
+            ansBool = true;
+            ansDisplayText.innerHTML = (eval(equation))
+            cButton.innerHTML = "AC";
+            equation = eval(equation)
+        } catch {
+            ansBool = false;
+            ansDisplayText.innerHTML = "SYNTAX ERROR";
+            ansDisplayText.style = "font-size: 62px; margin-right: 24px; margin-top: 25px;"
+            equation = "";
+            cButton.innerHTML = "AC";
+        }
+    }
+    activateRainbow = (checkBool) => {
+        if (checkBool == true) {
+            let mainStyle = document.getElementById("mainStyle")
+            mainStyle.innerHTML = mainStyle.innerHTML +
+                "* {animation: rainbow 1s infinite;} #url {text-decoration: underline !important;} .calcButton:active {background-color: #181818;}"
+        } else {
+            mainStyle.innerHTML = (mainStyle.innerHTML).slice(0, -129)
+        }
+    }
+</script>
+
+</html>
