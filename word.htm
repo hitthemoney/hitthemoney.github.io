@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hitthemoney</title>
+</head>
+
+<body>
+    <span id="word" style="font-size: 8em;"></span>
+    <script>
+        this.url = new URL(document.URL);
+        this.word = url.searchParams.get("word");
+        if (url.searchParams.get("ctx") !== null) {
+            this.word = url.searchParams.get("ctx");
+        };
+        document.title = word;
+        document.getElementById("word").innerHTML = word;
+    </script>
+</body>
+
+</html>
