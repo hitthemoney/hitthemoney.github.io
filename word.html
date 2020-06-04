@@ -10,9 +10,21 @@
     <script>
         this.url = new URL(document.URL);
         this.word = url.searchParams.get("word");
+        if (url.searchParams.get("base64") == "" || url.searchParams.get("b64") == "") {
+            console.log("yes")
+            this.b64b = true
+        }
         if (url.searchParams.get("ctx") !== null) {
             this.word = url.searchParams.get("ctx");
         };
+        if (this.b64b == true) {
+            try {
+                word = atob(word);
+            }
+            catch (err) {
+                word = err;
+            }
+        }
         document.title = word;
         document.getElementById("word").innerHTML = word;
     </script>
