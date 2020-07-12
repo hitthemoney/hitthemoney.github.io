@@ -8,7 +8,8 @@ var infoDiv = document.getElementById("info"),
     imgHolderImg = document.getElementById("imgHolderImg"),
     imageHolder = document.getElementById("imageHolder"),
     popupHolder = document.getElementById("popupHolder"),
-    social = document.getElementById("social");
+    social = document.getElementById("social"),
+    title = document.getElementById("title");
 
 fetch("/imgs/social.svg")
     .then(response => response.text())
@@ -30,6 +31,8 @@ fetch("https://money-messages.herokuapp.com")
 showCPEl = () => {
     //width: 100%; text-align: center; position: absolute; top: 210px; bottom: 0px
     CPDivWrap.style = "width: 100%; position: absolute; top: 275px; bottom: 0px"
+    document.body.style = ""
+    document.documentElement.style = ""
     CPFooter.style.display = ""
     showCPElem.onclick = hideCPEl;
     showCPElem.innerHTML = "Show Site Info"
@@ -77,6 +80,8 @@ hideCPEl = () => {
 
 showInfoElem = () => {
     CPDivWrap.style = "display:none;"
+    document.body.style = "overflow-y: auto !important;"
+    document.documentElement.style = "overflow-y: auto !important;"
     showCPElem.onclick = hideInfoElem;
     showCPElem.innerHTML = "Show Designer Portfolio"
     infoDiv.style.height = ""
