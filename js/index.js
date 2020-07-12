@@ -40,7 +40,7 @@ showCPEl = () => {
     var height = CPDiv.getBoundingClientRect().height,
         cHeight = 0,
         interval = setInterval(() => {
-            cHeight = cHeight + 2;
+            cHeight = cHeight + 5;
             CPDiv.style.height = `${cHeight}px`
             if (cHeight >= height) {
                 CPDiv.style.height = ""
@@ -69,7 +69,7 @@ hideCPEl = () => {
     var height = CPDiv.getBoundingClientRect().height,
         cHeight = height,
         interval = setInterval(() => {
-            cHeight = cHeight - 2;
+            cHeight = cHeight - 5;
             CPDiv.style.height = `${cHeight}px`
             if (cHeight <= 0) {
                 showInfoElem()
@@ -122,4 +122,17 @@ for (i = 2; i < gImgs.length; i++) {
     gImgs[i].addEventListener("click", function () {
         showImagePopup(this)
     })
+}
+
+var url = new URL(window.location.href);
+
+if (url.searchParams.get("gfx") !== null) {
+    infoDiv.style.height = "0px";
+    CPDivWrap.style = "width: 100%; position: absolute; top: 275px; bottom: 0px"
+    document.body.style = ""
+    document.documentElement.style = ""
+    CPFooter.style.display = ""
+    showCPElem.onclick = hideCPEl;
+    showCPElem.innerHTML = "Show Site Info"
+    CPDiv.style.height = ""
 }
