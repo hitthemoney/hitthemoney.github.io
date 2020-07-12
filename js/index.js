@@ -54,7 +54,7 @@ hideInfoElem = () => {
     var height = infoDiv.getBoundingClientRect().height,
         cHeight = height,
         interval = setInterval(() => {
-            cHeight = cHeight - 1;
+            cHeight = cHeight - 2;
             infoDiv.style.height = `${cHeight}px`
             if (cHeight <= 0) {
                 showCPEl()
@@ -88,7 +88,7 @@ showInfoElem = () => {
     var height = infoDiv.getBoundingClientRect().height,
         cHeight = 0,
         interval = setInterval(() => {
-            cHeight = cHeight + 1;
+            cHeight = cHeight + 2;
             infoDiv.style.height = `${cHeight}px`
             if (cHeight >= height) {
                 clearInterval(interval)
