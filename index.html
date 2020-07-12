@@ -7,88 +7,66 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
     <link rel="manifest" href="/icon/site.webmanifest">
-    <style>
-        @font-face {
-            font-family: 'gamefont';
-            src: url('fonts/futuraboldital.ttf');
-        }
-
-        h1.courier {
-            font-family: "Courier New";
-        }
-
-        a.courier {
-            font-family: "Courier New";
-            color: #000;
-        }
-
-        #text {
-            margin-left: 10px;
-        }
-
-        html,
-        body {
-            font-family: "gamefont";
-            margin: 0;
-            padding: 0;
-            background-color: #f1c40f;
-        }
-
-        #navBar {
-            background-color: rgba(0, 0, 0, .3);
-            color: #000;
-            width: 100%;
-            height: 85px;
-        }
-
-        #navTitle {
-            margin-top: -80px;
-            font-size: 60px;
-            text-align: center;
-        }
-
-        #url {
-            color: blue;
-            margin-left: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <div id="navBar"></div>
-    <h1 id="navTitle">hitthemoney.com<h1>
-            <h1 id="text" class="courier">More Coming Soon!</h1>
-            <!--<img src="imgs/youtubeicon.png" alt="YouTube" width="500" height="333" onclick="openLink('http://krunker.io');">-->
-            <h2 style="font-family: Courier New; margin-left: 10px;">Socials:</h2>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://www.youtube.com/channel/UCtWQuDxHtgq_wY7AxuxM__w">My YouTube</a>
-            <br>
-            <a id="url" class="courier" href="https://twitch.tv/hitthemoney/">My Twitch</a>
-            <h2 style="font-family: Courier New; margin-left: 10px;">My Repositories:</h2>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://github.com/hitthemoney/krunkerMarketPing">Krunker Market Ping Extension</a><br>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://github.com/hitthemoney/money-bot/tree/master/moneyBot%20py">moneyBot Code</a><br>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://github.com/hitthemoney/krunkerMarketTools">Krunker Market Tools Extension</a><br>
-            <h2 style="font-family: Courier New; margin-left: 10px;">My Discord Bot:</h2>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://hitthemoney.github.io/money-bot">moneyBot</a>
-            <h2 style="font-family: Courier New; margin-left: 10px;">Krunker Tools:</h2>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://hitthemoney.github.io/skin-maker-skins">Skins
-                by Krunker Skin Makers Finder </a><br>
-            <a id="url" style="margin-top: -10px;" class="courier"
-                href="https://hitthemoney.github.io/krunker-logo-maker">Krunker Logo Maker </a>
-                       <div>
-                <h2 style="font-family: Courier New; margin-left: 10px;">One of My YouTube Videos:</h2>
-                <iframe id="ytVid" frameBorder="0" style="margin-top: 25px; margin-left: 10px;" width="720" height="480"
-                    src=""></iframe>
-
-                <script>
-                    document.getElementById("ytVid").src = "https://www.youtube.com/embed/" + "utQnPZYlDPo";
-                </script>
+    <div id="navBar"><object type="image/svg+xml" id="title" data="/imgs/title.svg"></object>
+        <object type="image/svg+xml" id="social" data="/imgs/social.svg"></object>
+    </div>
+    <div id="info">
+        <h2 class="subTitle">Sites:</h2>
+        <a id="url" href="https://hitthemoney.com/skin-maker-skins">Skins
+            by Krunker Skin Makers Finder </a><br>
+        <a id="url" href="https://hitthemoney.com/krunker-logo-maker">Krunker Logo Maker
+        </a><br>
+        <a id="url" href="https://hitthemoney.com/money-bot">moneyBot (discord bot)</a><br>
+        <a id="url" href="https://hitthemoney.com/venge-bot">Venge Bot (discord bot)</a><br>
+        <a id="url" href="https://money-messenger.herokuapp.com">Money Messenger</a><span id="mms"></span><br>
+        <h2 class="subTitle">Extensions:</h2>
+        <a id="url" href="https://github.com/hitthemoney/krunkerMarketTools">Krunker Market
+            Tools</a><br>
+        <a id="url" href="https://github.com/hitthemoney/krunkerMarketPing">Krunker Market
+            Ping</a><br>
+        <a id="url" href="https://github.com/hitthemoney/krunker-editor-obj-exporter">Krunker
+            Editor OBJ Exporter</a><br>
+    </div>
+    <h2 class="subTitle" id="showCP">Show Designer Portfolio</h2>
+    <div id="CPDivWrap" style="display: none;">
+        <div id="CPDiv" style="height: 0px;">
+            <h2 class="subTitle">Thumbnails:</h2>
+            <div class="gallery" id="thumbnails">
+                <a href="https://www.youtube.com/watch?v=2pDIhzu1WcM">
+                    <img src="/imgs/thumbnail1.png" alt="How to create KRUNKER logos">
+                </a>
+                <a href="https://www.youtube.com/watch?v=S-BDmGZY8OA">
+                    <img src="/imgs/thumbnail2.png" alt="How to make KRUNKER skins">
+                </a>
             </div>
+            <h2 class="subTitle">Player Renders:</h2>
+            <div class="gallery" id="playerRenders">
+                <img src="/imgs/rev.png" alt="Revolver Render">
+                <img src="/imgs/antimatter.png" alt="Antimatter Render">
+                <img src="/imgs/lmg.png" alt="LMG Render">
+            </div>
+            <h2 class="subTitle">Krunker Skins:</h2>
+            <div class="gallery" id="playerRenders">
+                <img src="/imgs/voyagervi.png" alt="Voyager VI">
+                <img src="/imgs/101skullbreaker.png" alt="101 Skullbreaker (Remake)">
+                <img src="/imgs/monarchwings.png" alt="Monarch Wings">
+            </div>
+        </div>
+    </div>
+    <span style="display: none;" id="CPFooter"><b>Note:</b> this is <i>not</i> all of my work.</span>
+    <div style="display:none;" id="popupHolder">
+        <div onclick="hidePopup()" id="popupBack"></div>
+        <div id="imageHolder" style="display: none;">
+            <img id="imgHolderImg" src="" alt="">
+            <!--<hr>-->
+            <span id="imgDesc"></span>
+        </div>
+    </div>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>
