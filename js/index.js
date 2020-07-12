@@ -29,6 +29,12 @@ fetch("https://money-messages.herokuapp.com")
     });
 
 showCPEl = () => {
+    if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?gfx";
+        window.history.pushState({
+            path: newurl
+        }, "", newurl);
+    }
     //width: 100%; text-align: center; position: absolute; top: 210px; bottom: 0px
     CPDivWrap.style = "width: 100%; position: absolute; top: 275px; bottom: 0px"
     document.body.style = ""
@@ -64,6 +70,12 @@ hideInfoElem = () => {
 }
 
 hideCPEl = () => {
+    if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "";
+        window.history.pushState({
+            path: newurl
+        }, "", newurl);
+    }
     CPFooter.style.display = "none"
     CPDiv.style.height = ""
     var height = CPDiv.getBoundingClientRect().height,
