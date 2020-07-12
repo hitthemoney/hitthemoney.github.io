@@ -1,7 +1,7 @@
 @font-face {
-    font-family: Futura;
-    src: url(fonts/Futura-Bold.ttf);
-  }
+    font-family: futura;
+    src: url(../fonts/futura.ttf);
+}
 
 .text {
     margin-left: 10px;
@@ -23,7 +23,7 @@ body {
 
 .subTitle {
     margin-left: 10px;
-    font-family: Futura;
+    font-family: futura;
     font-size: 1.6em;
     color: #fff;
 }
@@ -168,7 +168,7 @@ body {
     text-align: center;
     margin-top: -55px;
     text-shadow: -1px 1px 0 #101,
-				  1px 1px 0 #101,
-				 1px -1px 0 #101,
-				-1px -1px 0 #101;
+        1px 1px 0 #101,
+        1px -1px 0 #101,
+        -1px -1px 0 #101;
 }
