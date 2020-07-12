@@ -7,7 +7,17 @@ var infoDiv = document.getElementById("info"),
     imgDesc = document.getElementById("imgDesc"),
     imgHolderImg = document.getElementById("imgHolderImg"),
     imageHolder = document.getElementById("imageHolder"),
-    popupHolder = document.getElementById("popupHolder");
+    popupHolder = document.getElementById("popupHolder"),
+    social = document.getElementById("social");
+
+fetch("/imgs/social.svg")
+    .then(response => response.text())
+    .then(data => {
+        social.outerHTML = data
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 
 fetch("https://money-messages.herokuapp.com")
     .then(response => response.text())
