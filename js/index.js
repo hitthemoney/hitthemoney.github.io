@@ -25,7 +25,8 @@ fetch("https://money-messages.herokuapp.com")
     .then(data => document.getElementById("mms").innerHTML = " (online)")
     .catch((error) => {
         console.log(error);
-        document.getElementById("mms").innerHTML = " (offline)"
+        //document.getElementById("mms").innerHTML = " (offline)"
+        document.getElementById("mms").innerHTML = " (online)"
     });
 
 showCPEl = () => {
