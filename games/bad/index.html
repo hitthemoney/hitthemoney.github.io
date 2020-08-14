@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Bad Game :]</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/PlatformerBuild.json", {
+      onProgress: UnityProgress
+    });
+  </script>
+</head>
+
+<body>
+  <div class="webgl-content">
+    <div id="unityContainer" style="width: 960px; height: 600px"></div>
+    <div class="footer">
+      <div class="webgl-logo"></div>
+      <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+      <div class="title">Bad Game <b>:]</b></div>
+      <div id="howTo" class="title" onclick="showHowTo()"><b>How to Play :]</b></div>
+    </div>
+  </div>
+  <div style="display: none;" id="popupHolder">
+    <div onclick="hidePopup()" id="popupBack"></div>
+    <div id="howToHolder" style="display: none;">
+      <span id="howToT">
+        <h1>How To Play</h1>
+        <p style="margin-top: -60px;">The goal of the game is trying to knock the enemy into the void (with gun or pushing). Since this game is bad you can not win the game.
+<hr>
+<b>WASD</b> for movement
+<b>P</b> to switch to First Person
+<b>O</b> to switch to Third Person</p>
+    </div>
+  </div>
+  <script src="extra.js"></script>
+</body>
+
+</html>
