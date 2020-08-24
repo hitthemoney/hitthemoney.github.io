@@ -110,21 +110,50 @@ showInfoElem = () => {
 }
 
 hidePopup = () => {
-    for (num = 0; num < popups.length; num++) document.getElementById(popups[num] + "Holder").style.display = "none"
-    document.getElementById("popupHolder").style.display = "none"
+    for (num = 0; num < popups.length; num++) document.getElementById(popups[num] + "Holder").style.display = "none";
+    document.getElementById("popupHolder").style.display = "none";
 }
 
 showImagePopup = (elem) => {
-    imgHolderImg.src = elem.src
-    imgHolderImg.alt = elem.alt
-    imgDesc.innerHTML = elem.alt
-    imageHolder.style.display = ""
-    popupHolder.style.display = ""
-    imgHolderImg.style.width = `${(window.innerWidth) - 100}px`;
-    imgHolderImg.style.height = `${(window.innerHeight) - 100}px`;
-    imageHolder.style.width = `${(window.innerWidth) - 100}px`;
-    imageHolder.style.height = `${(window.innerHeight) - 100}px`;
+    var imgMinus = 100;
+    imgHolderImg.src = elem.src;
+    imgHolderImg.alt = elem.alt;
+    imgDesc.innerHTML = elem.alt;
+    imageHolder.style.display = "";
+    popupHolder.style.display = "";
 
+    imageHolder.style = "";
+    imgHolderImg.style = "";
+
+    var tempWidth = parseInt(imgHolderImg.width);
+    var tempHeight = parseInt(imgHolderImg.height);
+    //console.log([tempWidth, tempHeight])
+
+    var imgWidth = (window.innerWidth);
+    var imgHeight = (window.innerHeight);
+
+    if (window.innerHeight > window.innerWidth) imgHeight = null
+    if (window.innerHeight < window.innerWidth) imgWidth = null
+
+    function initImageStyles() {
+        imgHolderImg.style.width = `${imgWidth /*- imgMinus*/}px`;
+        imgHolderImg.style.height = `${imgHeight /*- imgMinus*/}px`;
+        imageHolder.style.width = `${imgWidth /*- imgMinus*/}px`;
+        imageHolder.style.height = `${imgHeight /*- imgMinus*/}px`;
+    }
+    initImageStyles();
+
+    imgWidth = imgHolderImg.width;
+    imgHeight = imgHolderImg.height;
+
+    if (imgHolderImg.width > window.innerWidth) {
+        //var widDif = imgHolderImg.width - window.innerWidth;
+        //console.log([widDif, imgHolderImg.width])
+        //imgHeight -= widDif;
+        imgWidth = window.innerWidth;
+        imgHeight = (tempHeight / tempWidth) * imgWidth
+        initImageStyles();
+    }
 }
 
 showCPElem.onclick = hideInfoElem;

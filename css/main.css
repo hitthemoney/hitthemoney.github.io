@@ -29,10 +29,18 @@ body {
 }
 
 #title {
-    width: max-content;
+    /*width: max-content;*/
+    
+    width: 100%;
+    width: -moz-available;   
+    width: -webkit-fill-available;
+    width: fill-available;
+
+    max-width: 625px;
+
     height: max-content;
     transform-origin: center;
-    transform: scale(2);
+    /*transform: scale(2);*/
     display: block;
     margin: auto;
     margin-top: 10px;
@@ -150,12 +158,12 @@ body {
     position: absolute;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%) scale(0.9);
 }
 
 #imageHolder img {
     object-fit: contain;
-    width: 720px;
+    /*width: 720px;*/
 }
 
 /*#imageHolder hr {
