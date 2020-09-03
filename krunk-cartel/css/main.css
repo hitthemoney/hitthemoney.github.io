@@ -9,7 +9,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     /* background-image: url("/img/animicon.gif"); */
-    background-image: url("/img/icon.svg");
+    background-image: url("../img/icon.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
