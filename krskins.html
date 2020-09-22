@@ -1,0 +1,141 @@
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171494631-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-171494631-1');
+    </script>
+    <!-- End Google Analytics -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:image">
+    <title>Skin Est Prices Table</title>
+    <meta name="og:title" content="Krunker Skins Table">
+    <meta name="og:url" content="https://hitthemoney.com/krskins.html">
+    <meta name="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <style>
+        html,
+        body {
+            background-color: rgb(37, 37, 52);
+            margin: 0px;
+            padding: 0px;
+            overflow: auto;
+        }
+
+        * {
+            font-family: sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid #fff;
+            border-collapse: collapse;
+            padding: 3px;
+        }
+
+        table {
+            display: inline-table;
+            margin: 4px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #skins {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: max-content;
+            height: max-content;
+            overflow: auto;
+            padding: 4px;
+        }
+
+        #loading {
+            font-size: 50px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="loading" style="display: block; opacity: 1;">Loading</h1>
+    <script>
+        var rarities = ["#b2f252", "#2196F3", "#E040FB", "#FBC02D", "#ed4242", "#171717", "#fff53d"],
+            rarityNames = ["Uncommon", "Rare", "Epic", "Legendary", "Relic", "Contraband", "Unobtainable"],
+            skinsDiv = document.createElement("div"),
+            loading = document.getElementById("loading"),
+            rarityTables = [],
+            skins,
+            estVals;
+
+        skinsDiv.id = "skins";
+        skinsDiv.style = "display: none; opacity: 0";
+        document.body.appendChild(skinsDiv);
+
+        for (i in rarities) {
+            var rs = `style="border-color: ${rarities[i]}"`
+            rarityTables.push(document.createElement("table"));
+            rarityTables[i].innerHTML += `<tr>
+<th ${rs}>Skin Name (${rarityNames[i]})</th>
+<th ${rs}>Est Value</th> 
+</tr>`
+            rarityTables[i].style = `color: ${rarities[i]}; border-color: ${rarities[i]};`;
+            skinsDiv.appendChild(rarityTables[i])
+        };
+
+        fetch("https://api.krunker.io/prices")
+            .then(res => res.json())
+            .then(data => {
+                estVals = data;
+                fetch("https://cors-anywhere.herokuapp.com/https://krunker.io/social.html")
+                    .then(res => res.text())
+                    .then(doc => {
+                        skins = JSON.parse(JSON.stringify(eval(doc.split(".exports.skins=")[1].split("]")[0] + "]")));
+                        for (i in skins) {
+                            var rs = `style="border-color: ${rarities[skins[i].rarity]}"`
+                            var skinInfo = `<tr>
+<td ${rs}>${skins[i].name}</td>
+<td ${rs}>~ ${estVals[i]} KR</td>
+</tr>`
+                            rarityTables[skins[i].rarity].innerHTML += skinInfo;
+                        }
+                        skinsDiv.style.display = "block";
+
+                        var num = 0;
+                        var animTime = 0.25;
+                        var interval = setInterval(() => {
+                            var key = (num / 1000) / animTime;
+                            skinsDiv.style.opacity = key;
+                            loading.style.opacity = -(key - 0.5) + 0.5;
+                            if ((num / 1000) > animTime) {
+                                loading.style.display = "none";
+                                clearInterval(interval);
+                            }
+                            num++;
+                        }, 1)
+                    })
+            })
+    </script>
+</body>
+
+</html>
