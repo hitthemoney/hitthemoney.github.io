@@ -11,7 +11,7 @@ var infoDiv = document.getElementById("info"),
     social = document.getElementById("social"),
     title = document.getElementById("title");
 
-fetch("/imgs/social.svg")
+fetch("./imgs/social.svg")
     .then(response => response.text())
     .then(data => {
         social.outerHTML = data

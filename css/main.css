@@ -9,7 +9,7 @@
 
 html,
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Helvetica Neue", helvetica, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #0d0b29;
@@ -30,9 +30,9 @@ body {
 
 #title {
     /*width: max-content;*/
-    
+
     width: 100%;
-    width: -moz-available;   
+    width: -moz-available;
     width: -webkit-fill-available;
     width: fill-available;
 
@@ -54,6 +54,14 @@ body {
 #url {
     color: rgb(0, 140, 255);
     margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 #social {
