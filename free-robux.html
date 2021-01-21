@@ -1,0 +1,17 @@
+<script>
+let uniqueLog = (() => {
+    let a = 0;
+    return (...data) => {
+        a ^= 1;
+        console.log(...data, ...[(a ? "" : "\n")])
+    }
+})();
+
+let robux = 0;
+for(;;) {
+    uniqueLog(`u get ${robux} rboux `)
+    document.getElementById("robux").innerHTML = `u get ${robux} rboux `
+    robux++
+}
+</script>
+<p id=robux></p>
