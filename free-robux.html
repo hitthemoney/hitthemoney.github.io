@@ -11,7 +11,7 @@ let uniqueLog = (() => {
 let robux = 0;
 while (robux < 1e69) {
     uniqueLog(`u get ${robux} rboux `)
-    document.getElementById("robux").innerHTML = `u get ${robux} rboux `
+    document.getElementById("robux")?.innerHTML = `u get ${robux} rboux `
     robux++
 }
 </script>
