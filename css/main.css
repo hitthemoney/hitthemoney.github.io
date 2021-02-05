@@ -9,7 +9,6 @@
 
 html,
 body {
-    font-family: "Helvetica Neue", helvetica, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #0d0b29;
@@ -19,11 +18,12 @@ body {
 
 * {
     color: #fff;
+    font-family: "Helvetica Neue", helvetica, sans-serif, Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
 }
 
 .subTitle {
     margin-left: 10px;
-    font-family: futura;
+    font-family: futura, "Helvetica Neue", helvetica, sans-serif, Arial;
     font-size: 1.6em;
     color: #fff;
 }
