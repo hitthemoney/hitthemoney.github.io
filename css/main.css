@@ -18,7 +18,7 @@ body {
 
 * {
     color: #fff;
-    font-family: "Helvetica Neue", helvetica, sans-serif, Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /*"Helvetica Neue", helvetica, sans-serif, Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;*/
 }
 
 .subTitle {
