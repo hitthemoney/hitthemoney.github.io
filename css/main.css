@@ -114,7 +114,7 @@ a:hover {
 #social {
     display: block;
     margin: auto;
-    margin-top: -20px;
+    margin-top: -27.5px;
     position: relative;
     max-width: 225px;
     width: calc(45vw);
@@ -359,4 +359,8 @@ a:hover {
 .noTransition,
 .noTransition * {
     transition: none !important;
+}
+
+yesscript {
+    display: inline;
 }
