@@ -36,96 +36,104 @@
     <noscript>
         <h1 id="noscriptHeader">This site requires JavaScript</h1>
         <style>
-            yesscript {
+            body * {
                 display: none;
             }
+
+            body > noscript {
+                display: initial !important;
+            }
+
             body {
                 margin: 8px;
             }
+
+
+            #noscriptHeader {
+                display: inline;
+            }
         </style>
     </noscript>
-    <yesscript>
-        <div id="navBar">
-            <object type="image/svg+xml" id="title" data="./imgs/title.svg"></object>
-            <img id="social" src="./imgs/social.svg">
+    <div id="navBar">
+        <object type="image/svg+xml" id="title" data="./imgs/title.svg"></object>
+        <img id="social" src="./imgs/social.svg">
+    </div>
+    <div id="mainFlex">
+        <div id="info">
+            <h2 class="subTitle">Sites:</h2>
+            <a class="url" href="https://hitthemoney.com/skin-maker-skins">Skins
+                by Krunker Skin Makers Finder </a><br>
+            <a class="url" href="https://hitthemoney.com/fractal/">WebGL Fractal </a><br>
+            <a class="url" href="https://hitthemoney.com/krunker-logo-maker">Krunker Logo Maker
+            </a><br>
+            <a class="url" href="https://hitthemoney.com/krunker-shader-maker">Krunker Shader Maker
+            </a><br>
+            <a class="url" href="https://hitthemoney.com/krunker-mod-maker">Krunker Mod Maker</a><br>
+            <a class="url" href="https://hitthemoney.com/money-bot">moneyBot (discord bot)</a><br>
+            <!-- please ignore venge bot lol-->
+            <!--<a class="url" href="https://hitthemoney.com/venge-bot">Venge Bot (discord bot)</a><br>-->
+            <a class="url" href="https://money-messages.herokuapp.com">Money Messenger</a><span id="mms"></span><br>
+            <h2 class="subTitle">Extensions:</h2>
+            <a class="url" href="https://github.com/hitthemoney/krunkerMarketTools">Krunker Market
+                Tools</a><br>
+            <a class="url" href="https://github.com/hitthemoney/krunkerMarketPing">Krunker Market
+                Ping</a><br>
+            <a class="url" href="https://github.com/hitthemoney/krunker-editor-obj-exporter">Krunker
+                Editor OBJ Exporter</a><br>
+            <h2 class="subTitle">More:</h2>
+            <a class="url" href="https://krunker.io/social.html?p=profile&q=lostnoob69">Krunker
+                Profile/Social</a><br>
         </div>
-        <div id="mainFlex">
-            <div id="info">
-                <h2 class="subTitle">Sites:</h2>
-                <a class="url" href="https://hitthemoney.com/skin-maker-skins">Skins
-                    by Krunker Skin Makers Finder </a><br>
-                <a class="url" href="https://hitthemoney.com/fractal/">WebGL Fractal </a><br>
-                <a class="url" href="https://hitthemoney.com/krunker-logo-maker">Krunker Logo Maker
-                </a><br>
-                <a class="url" href="https://hitthemoney.com/krunker-shader-maker">Krunker Shader Maker
-                </a><br>
-                <a class="url" href="https://hitthemoney.com/krunker-mod-maker">Krunker Mod Maker</a><br>
-                <a class="url" href="https://hitthemoney.com/money-bot">moneyBot (discord bot)</a><br>
-                <!-- please ignore venge bot lol-->
-                <!--<a class="url" href="https://hitthemoney.com/venge-bot">Venge Bot (discord bot)</a><br>-->
-                <a class="url" href="https://money-messages.herokuapp.com">Money Messenger</a><span id="mms"></span><br>
-                <h2 class="subTitle">Extensions:</h2>
-                <a class="url" href="https://github.com/hitthemoney/krunkerMarketTools">Krunker Market
-                    Tools</a><br>
-                <a class="url" href="https://github.com/hitthemoney/krunkerMarketPing">Krunker Market
-                    Ping</a><br>
-                <a class="url" href="https://github.com/hitthemoney/krunker-editor-obj-exporter">Krunker
-                    Editor OBJ Exporter</a><br>
-                <h2 class="subTitle">More:</h2>
-                <a class="url" href="https://krunker.io/social.html?p=profile&q=lostnoob69">Krunker
-                    Profile/Social</a><br>
-            </div>
-            <h2 class="subTitle gridItem" id="showCP">Show <span id="showCPFlip">Designer Portfolio</span></h2>
-            <!--<div id="CPDivWrap" style="display: none; height: 0px;">-->
-            <div id="CPDiv" style="display: none; height: 0px;">
-                <h2 class="subTitle">Thumbnails:</h2>
-                <div class="gallery" id="thumbnails">
-                    <a>
-                        <!-- href="https://www.youtube.com/watch?v=2pDIhzu1WcM" -->
-                        <img src="/imgs/thumbnail1.png" alt="How to create KRUNKER logos">
-                    </a>
-                    <a>
-                        <!-- href="https://www.youtube.com/watch?v=S-BDmGZY8OA" -->
-                        <img src="/imgs/thumbnail2.png" alt="How to make KRUNKER skins">
-                    </a>
-                    <a>
-                        <!-- href="https://www.youtube.com/watch?v=SYAskXS1nzk"-->
-                        <img src="/imgs/thumbnail3.png" alt="KRUNKER Mobile Gameplays (Help From Giant#7650)">
-                    </a>
-                    <a>
-                        <img src="/imgs/thumbnail4.png" alt="How to Make KRUNKER Renders on the web!">
-                    </a>
-                    <a>
-                        <img src="/imgs/thumbnail5.png" alt="Trade history of a Krunker scammer (seltix)
+        <h2 class="subTitle gridItem" id="showCP">Show <span id="showCPFlip">Designer Portfolio</span></h2>
+        <!--<div id="CPDivWrap" style="display: none; height: 0px;">-->
+        <div id="CPDiv" style="display: none; height: 0px;">
+            <h2 class="subTitle">Thumbnails:</h2>
+            <div class="gallery" id="thumbnails">
+                <a>
+                    <!-- href="https://www.youtube.com/watch?v=2pDIhzu1WcM" -->
+                    <img src="/imgs/thumbnail1.png" alt="How to create KRUNKER logos">
+                </a>
+                <a>
+                    <!-- href="https://www.youtube.com/watch?v=S-BDmGZY8OA" -->
+                    <img src="/imgs/thumbnail2.png" alt="How to make KRUNKER skins">
+                </a>
+                <a>
+                    <!-- href="https://www.youtube.com/watch?v=SYAskXS1nzk"-->
+                    <img src="/imgs/thumbnail3.png" alt="KRUNKER Mobile Gameplays (Help From Giant#7650)">
+                </a>
+                <a>
+                    <img src="/imgs/thumbnail4.png" alt="How to Make KRUNKER Renders on the web!">
+                </a>
+                <a>
+                    <img src="/imgs/thumbnail5.png" alt="Trade history of a Krunker scammer (seltix)
                     ">
-                    </a>
-                </div>
-                <h2 class="subTitle">Player Renders:</h2>
-                <div class="gallery" id="playerRenders">
-                    <img src="/imgs/rev.png" alt="Revolver Render">
-                    <img src="/imgs/antimatter.png" alt="Antimatter Render">
-                    <img src="/imgs/lmg.png" alt="LMG Render">
-                </div>
-                <h2 class="subTitle">Krunker Skins:</h2>
-                <div class="gallery" id="playerRenders">
-                    <img src="/imgs/voyagervi.png" alt="Voyager VI">
-                    <img src="/imgs/101skullbreaker.png" alt="101 Skullbreaker (Remake)">
-                    <img src="/imgs/monarchwings.png" alt="Monarch Wings">
-                </div>
+                </a>
             </div>
-            <span style="display: none;" id="CPFooter"><b>Note:</b> this is <i>not</i> all of my work.</span>
-        </div>
-        <!--</div>-->
-        <div style="display: none;" id="popupHolder">
-            <div onclick="hidePopups()" id="popupBack"></div>
-            <div id="imageHolder" style="display: none;">
-                <img id="imgHolderImg" src="" alt="">
-                <!--<hr>-->
-                <span id="imgDesc"></span>
+            <h2 class="subTitle">Player Renders:</h2>
+            <div class="gallery" id="playerRenders">
+                <img src="/imgs/rev.png" alt="Revolver Render">
+                <img src="/imgs/antimatter.png" alt="Antimatter Render">
+                <img src="/imgs/lmg.png" alt="LMG Render">
+            </div>
+            <h2 class="subTitle">Krunker Skins:</h2>
+            <div class="gallery" id="playerRenders">
+                <img src="/imgs/voyagervi.png" alt="Voyager VI">
+                <img src="/imgs/101skullbreaker.png" alt="101 Skullbreaker (Remake)">
+                <img src="/imgs/monarchwings.png" alt="Monarch Wings">
             </div>
         </div>
-        <script src="./js/index.js"></script>
-    </yesscript>
+        <span style="display: none;" id="CPFooter"><b>Note:</b> this is <i>not</i> all of my work.</span>
+    </div>
+    <!--</div>-->
+    <div style="display: none;" id="popupHolder">
+        <div onclick="hidePopups()" id="popupBack"></div>
+        <div id="imageHolder" style="display: none;">
+            <img id="imgHolderImg" src="" alt="">
+            <!--<hr>-->
+            <span id="imgDesc"></span>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

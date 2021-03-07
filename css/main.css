@@ -360,7 +360,3 @@ a:hover {
 .noTransition * {
     transition: none !important;
 }
-
-yesscript {
-    display: inline;
-}
