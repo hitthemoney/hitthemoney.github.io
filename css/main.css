@@ -1,6 +1,29 @@
 @font-face {
     font-family: futura;
-    src: url(../fonts/futura.ttf);
+    src: url("../fonts/futura.ttf");
+}
+
+:root {
+    --deep-blue: rgb(0, 89, 255);
+    --bright-color: rgba(255, 102, 0, 1);
+    --bg-color: rgb(27, 32, 40);
+    --secondary-bg-color: rgb(27, 32, 40);
+    /* secondary bg color to add later */
+    /**
+    download and add roboto font face© 
+    */
+    --sans-font:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --title-font: var(--sans-font);
+    /* --title-font: futura, "Helvetica Neue", helvetica, sans-serif, Arial; */
+    /* Other secondary Background Colors
+    rgb(27, 30, 34);
+    */
+    /* Other Background Colors
+    rgb(28, 31, 36);
+    rgb(29, 32, 44);
+    rgb(30, 34, 46);
+    rgb(13, 11, 41);
+    */
 }
 
 .text {
@@ -11,26 +34,36 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background-color: #0d0b29;
-    overflow-y: hidden;
+    /* background-color: #0d0b29; */
+    background-color: var(--bg-color);
+    /*overflow-y: hidden;
     overflow-x: auto !important;
+    overflow-y: auto;*/
+    overflow-y: overlay;
+    overflow-x: hidden;
 }
 
 * {
+    transition: all 0.5s;
     color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /*"Helvetica Neue", helvetica, sans-serif, Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;*/
+    font-family: var(--sans-font);
+    /*"Helvetica Neue", helvetica, sans-serif, Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;*/
 }
 
 .subTitle {
     margin-left: 10px;
-    font-family: futura, "Helvetica Neue", helvetica, sans-serif, Arial;
+    font-family: var(--title-font);
     font-size: 1.6em;
+    font-weight: 735;
     color: #fff;
 }
 
-#title {
-    /*width: max-content;*/
+.subTitle * {
+    font-family: var(--title-font);
+}
 
+#title {
+    /* width: max-content;*/
     width: 100%;
     width: -moz-available;
     width: -webkit-fill-available;
@@ -44,6 +77,19 @@ body {
     display: block;
     margin: auto;
     margin-top: 10px;
+
+    /*
+    font-size: 5em;
+    text-align: center;
+    font-family: Futura, sans-serif;
+    font-weight: bold;
+    background-attachment: fixed;
+    background-image: url("../imgs/title_mask.svg");
+    background-clip: text;
+    background-color: #F12900;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    */
 }
 
 #navBar {
@@ -51,8 +97,9 @@ body {
     height: max-content;
 }
 
-#url {
-    color: rgb(0, 140, 255);
+.url {
+    color: var(--deep-blue);
+    /* color: rgb(0, 140, 255) */
     margin-left: 10px;
 }
 
@@ -69,6 +116,8 @@ a:hover {
     margin: auto;
     margin-top: -20px;
     position: relative;
+    max-width: 225px;
+    width: calc(45vw);
 }
 
 #info a,
@@ -76,10 +125,10 @@ a:hover {
     font-size: 1.2em;
 }
 
-#info,
-#CPDiv {
-    height: max-content;
-    width: 100%;
+/* #CPDiv, */
+#info {
+    /* height: max-content;
+    width: 100%; */
     overflow: hidden;
     margin-top: 15px;
 
@@ -97,17 +146,65 @@ a:hover {
 
 .gallery img {
     float: left;
-    margin: 5px;
-    border: #fff 4px solid;
+    /* margin: 5px;
+    border: #fff 4px solid; 
+    width: 360px; */
+    /*max-width: calc(50vw - 32.5px);
+    min-width: calc(33vw - 25px);*/
+    cursor: pointer;
     width: 360px;
+    margin: 7.5px;
+    border-radius: 7.5px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px;
+    border: rgba(0, 0, 0, 0.5) 3px solid;
+}
+
+#CPDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* three per row */
+@media screen and (min-width: 1075px) {
+    .gallery img {
+        width: calc(33vw - 25px);
+    }
+}
+
+/* two per row */
+@media screen and (max-width: 1075px) {
+    .gallery img {
+        width: calc(50vw - 32.5px);
+    }
+}
+
+/* one per row */
+@media screen and (max-width: 500px) {
+    #showCP {
+        display: inline;
+        text-align: center;
+    }
+
+    #CPDiv  {
+        align-items: center;
+        align-content: center;
+    }
+
+    .gallery img {
+        float: none;
+        width: calc(100vw - 40px);
+    }
 }
 
 .gallery img:hover {
-    opacity: 0.85;
+    transform: translateY(-5px);
+    opacity: 0.8;
 }
 
 .gallery {
-    margin-left: 5px;
+    /*margin-left: 5px;*/
+    padding: 5px;
     width: 100%;
     /*height: 100%;*/
     text-align: center;
@@ -115,43 +212,48 @@ a:hover {
 }
 
 #CPFooter {
-    position: absolute;
-    bottom: 10px;
+    /* position: absolute */
+    position: fixed;
     right: 10px;
+    bottom: 10px;
+    display: block;
     text-shadow: -2px 2px 4px #101010;
     font-size: 1.2em;
 }
 
-#CPDivWrap {
-    overflow-y: auto;
-}
-
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px !important;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #1c184b;
-    border-radius: 10px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ff6600;
     border-radius: 10px;
-
-    /*#5e5ab6*/
+    background-color: rgba(0, 0, 0, 0);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #13103a;
+::-webkit-scrollbar-thumb:hover,
+.onScroll::-webkit-scrollbar-thumb {
+    background-color: var(--bright-color);
+    /* rgba(255, 255, 255, .65) */
 }
 
 #popupBack {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0px;
     background-color: rgba(0, 0, 0, .65);
+    z-index: 4444;
+}
+
+#popupHolder>div {
+    z-index: 5000;
 }
 
 #imageHolder {
@@ -159,19 +261,29 @@ a:hover {
     margin: auto;
     height: max-content;
     width: max-content;
+    /*
     border: solid 5px white;
-    border-radius: 10px;
     background-color: rgba(0, 0, 0, .65);
+    */
+    border-radius: 10px;
     overflow: hidden;
-    position: absolute;
-    top: 60%;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 #imageHolder img {
+    /* width: 720px; */
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .65);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px;
+    border: rgba(0, 0, 0, 0.75) 5px solid;
     object-fit: contain;
-    /*width: 720px;*/
+    max-width: 95vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
 }
 
 /*#imageHolder hr {
@@ -180,11 +292,71 @@ a:hover {
 
 #imageHolder span {
     display: block;
-    font-size: 2em;
+    /* font-size: 2em; */
+    font-size: 3.5vw;
+    font-weight: 500;
     text-align: center;
-    margin-top: -55px;
-    text-shadow: -1px 1px 0 #101,
+    /* margin-top: -55px; */
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+    /*-1px 1px 0 #101,
         1px 1px 0 #101,
         1px -1px 0 #101,
-        -1px -1px 0 #101;
+        -1px -1px 0 #101;*/
+}
+
+#mainFlex {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    max-height: max-content;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+#showCPFlip {
+    display: inline-block;
+}
+
+#secondaryNavBar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: var(--secondary-bg-color);
+    height: 11vh !important;
+    /* 60px */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 3333;
+    width: 100vw !important;
+    border-bottom: 2px solid var(--bright-color);
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 10px;
+}
+
+#secondaryNavBar #title {
+    position: relative;
+    left: 10px;
+    top: 1.5px;
+    max-width: 34vh !important;
+    /* 175px */
+    width: 40vw !important;
+    margin: initial !important;
+}
+
+#secondaryNavBar #social {
+    position: absolute;
+    float: right;
+    right: 12px;
+    max-width: 27vh !important;
+    /* 150px */
+    width: 37vw !important;
+    margin: initial !important;
+}
+
+.noTransition,
+.noTransition * {
+    transition: none !important;
 }

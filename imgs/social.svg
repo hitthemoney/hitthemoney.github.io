@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="social" xmlns="http://www.w3.org/2000/svg" height="50" width="225" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 225 50" style="enable-background:new 0 0 225 50;" xml:space="preserve">
+<!--
+	Made by hitthemoney with
+	Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)
+	and some modifications
+-->
+<svg version="1.1" id="social" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" width="225" viewBox="0 -5 225 60" style="enable-background:new 0 0 225 50;" xml:space="preserve">
+	<!--
+		original values:
+		height="50" width="225"
+		viewBox="0 0 225 50"
+		style="enable-background:new 0 0 225 50;"
+	-->
 	<style type="text/css">
 	.st0{clip-path:url(#SVGID_2_);}
 	.st1{fill:#AAAAAA;}
@@ -21,12 +31,22 @@
 	.st16{clip-path:url(#SVGID_8_);}
 	.st17{fill:#FE3C25;}
 
+	.btn {
+		transition: 0.5s all;
+	}
+
 	.btn:hover {
+		transform: translateY(-3px);
 		opacity: 0.8;
 	}
+
+	/*.btn:active {
+		transform-origin: center;
+		transform: scale(0.975);
+	}*/
 </style>
 	<g id="_x31_">
-		<a xlink:href="https://youtube.com/hitthemoney">
+		<a rel="noreferrer" target="_blank" xlink:href="https://youtube.com/hitthemoney">
 			<g class="btn" id="yt">
 				<g>
 					<g>
@@ -86,7 +106,7 @@
 				</g>
 			</g>
 		</a>
-		<a xlink:href="https://twitch.tv/hitthemoney">
+		<a rel="noreferrer" target="_blank" xlink:href="https://twitch.tv/hitthemoney">
 			<g class="btn" id="twitch">
 				<g>
 					<g>
@@ -135,7 +155,7 @@
 				</g>
 			</g>
 		</a>
-		<a xlink:href="https://reddit.com/u/hitthemoney">
+		<a rel="noreferrer" target="_blank" xlink:href="https://reddit.com/u/hitthemoney">
 			<g class="btn" id="reddit">
 				<g>
 					<g>
@@ -179,7 +199,7 @@
 				</g>
 			</g>
 		</a>
-		<a xlink:href="https://github.com/hitthemoney">
+		<a rel="noreferrer" target="_blank" xlink:href="https://github.com/hitthemoney">
 			<g class="btn" id="github">
 				<defs>
 					<path id="SVGID_7_" d="M192.3,39.7c0,0.2-0.2,0.4-0.5,0.4s-0.6-0.1-0.6-0.4c0-0.2,0.2-0.4,0.5-0.4S192.3,39.5,192.3,39.7z

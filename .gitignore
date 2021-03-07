@@ -1,2 +1,6 @@
 old
 hitthemoney.com.code-workspace
+keep
+.ignore
+dead-unob-owners/keep
+**/*.DS_Store
