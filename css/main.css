@@ -281,7 +281,7 @@ a:hover {
     border: rgba(0, 0, 0, 0.75) 5px solid;
     object-fit: contain;
     max-width: 95vw;
-    max-height: 95vh;
+    max-height: 85vh;
     width: auto;
     height: auto;
 }
