@@ -181,10 +181,10 @@ a:hover {
 
 /* one per row */
 @media screen and (max-width: 500px) {
-    #showCP {
+    /*#showCP {
         display: inline;
         text-align: center;
-    }
+    }*/
 
     #CPDiv  {
         align-items: center;
