@@ -47,7 +47,7 @@
 </style>
 	<g id="_x31_">
 		<a rel="noreferrer" target="_blank" xlink:href="https://youtube.com/hitthemoney">
-			<g class="socialBtn" id="yt">
+			<g data-descr="YouTube" class="socialBtn" id="yt">
 				<g>
 					<g>
 						<defs>
@@ -107,7 +107,7 @@
 			</g>
 		</a>
 		<a rel="noreferrer" target="_blank" xlink:href="https://twitch.tv/hitthemoney">
-			<g class="socialBtn" id="twitch">
+			<g data-descr="Twitch" class="socialBtn" id="twitch">
 				<g>
 					<g>
 						<defs>
@@ -156,7 +156,7 @@
 			</g>
 		</a>
 		<a rel="noreferrer" target="_blank" xlink:href="https://reddit.com/u/hitthemoney">
-			<g class="socialBtn" id="reddit">
+			<g data-descr="Reddit" class="socialBtn" id="reddit">
 				<g>
 					<g>
 						<defs>
@@ -200,7 +200,7 @@
 			</g>
 		</a>
 		<a rel="noreferrer" target="_blank" xlink:href="https://github.com/hitthemoney">
-			<g class="socialBtn" id="github">
+			<g data-descr="GitHub" class="socialBtn" id="github">
 				<defs>
 					<path id="SVGID_7_" d="M192.3,39.7c0,0.2-0.2,0.4-0.5,0.4s-0.6-0.1-0.6-0.4c0-0.2,0.2-0.4,0.5-0.4S192.3,39.5,192.3,39.7z
 				 M189.2,39.2c-0.1,0.2,0.1,0.4,0.4,0.5c0.3,0.1,0.6,0,0.6-0.2c0.1-0.2-0.1-0.4-0.4-0.5C189.5,38.9,189.3,39,189.2,39.2

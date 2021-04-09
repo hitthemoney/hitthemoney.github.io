@@ -22,10 +22,13 @@ const infoDiv = document.getElementById("info"),
     rootElem = document.documentElement,
     sleepMS = (ms = 0) => new Promise(r => setTimeout(r, ms)),
     hidePopups = () => {
+        document.body.style.overflow = "";
         for (let num = 0; num < popups.length; num++) document.getElementById(popups[num] + "Holder").style.display = "none";
         document.getElementById("popupHolder").style.display = "none";
     },
     showImagePopup = (elem) => {
+        document.body.style.overflow = "hidden";
+
         imgHolderImg.src = elem.src;
         imgHolderImg.alt = elem.alt;
         imgDesc.innerHTML = elem.alt;
@@ -127,9 +130,7 @@ title.addEventListener("load", (event) => {
     event.target.contentDocument.getElementById("Layer_2_1_").onclick = refreshPage;
 });
 
-secondaryTitle.addEventListener("load", (event) => {
-    event.target.onclick = scrollToTop;
-});
+secondaryTitle.onclick = scrollToTop;
 
 // document.querySelector("#secondaryTitleWrap").onclick = scrollToTop;
 

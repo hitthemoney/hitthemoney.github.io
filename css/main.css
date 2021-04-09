@@ -30,7 +30,7 @@
     margin-left: 10px;
 }
 
-html,
+/* html, */
 body {
     margin: 0;
     padding: 0;
@@ -223,6 +223,7 @@ a:hover {
 
 ::-webkit-scrollbar {
     width: 8px !important;
+    height: 8px !important;
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -241,6 +242,10 @@ a:hover {
 .onScroll::-webkit-scrollbar-thumb {
     background-color: var(--bright-color);
     /* rgba(255, 255, 255, .65) */
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 #popupBack {
