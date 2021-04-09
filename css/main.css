@@ -12,7 +12,7 @@
     /**
     download and add roboto font face© 
     */
-    --sans-font:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     --title-font: var(--sans-font);
     /* --title-font: futura, "Helvetica Neue", helvetica, sans-serif, Arial; */
     /* Other secondary Background Colors
@@ -186,7 +186,7 @@ a:hover {
         text-align: center;
     }*/
 
-    #CPDiv  {
+    #CPDiv {
         align-items: center;
         align-content: center;
     }
@@ -342,7 +342,8 @@ a:hover {
     top: 1.5px;
     max-width: 34vh !important;
     /* 175px */
-    width: 40vw !important;
+    /* width: 40vw !important; */
+    width: calc(4vw + 22.5vh) !important;
     margin: initial !important;
 }
 
@@ -354,6 +355,66 @@ a:hover {
     /* 150px */
     width: 37vw !important;
     margin: initial !important;
+}
+
+#secondaryNavBar #title:hover {
+    transition: all 0.2s;
+    opacity: 0.8;
+    transform: scale(0.985);
+}
+
+#secondaryTitleWrap {
+    display: inline-block;
+    position: relative;
+}
+
+#secondaryTitleWrap:focus {
+    outline: none;
+}
+
+/*
+Opacity property delay
+Usage:
+animation: opacityDelay <delay>;
+animation: opacityDelay 1s;
+*/
+@keyframes opacityDelay {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* #secondaryTitleWrap:focus::after, */
+#secondaryTitleWrap:hover::after {
+    /* text-decoration: underline; */
+    content: attr(data-descr);
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* border: rgba(0, 0, 0, 0.45) solid 1px; */
+    padding: 3.5px;
+    color: #fff;
+    font-size: 8px;
+    z-index: 1;
+    opacity: 1;
+    animation: opacityDelay 1.25s;
 }
 
 .noTransition,

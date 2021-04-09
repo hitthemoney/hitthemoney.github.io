@@ -8,9 +8,12 @@ const infoDiv = document.getElementById("info"),
     imageHolder = document.getElementById("imageHolder"),
     popupHolder = document.getElementById("popupHolder"),
     navBar = document.getElementById("navBar"),
-    social = document.getElementById("social"),
-    title = document.getElementById("title"),
+    social = document.querySelector("#navBar #social"),
+    secondarySocial = document.querySelector("#secondaryNavBar #social"),
+    title = document.querySelector("#navBar #title"),
+    secondaryTitle = document.querySelector("#secondaryNavBar #title"),
     mainFlex = document.getElementById("mainFlex"),
+    secondaryNavBar = document.getElementById("secondaryNavBar"),
     popups = ["image"],
     CPStates = ["Designer Portfolio", "Site Info"],
     onScrollClass = "onScroll",
@@ -92,42 +95,6 @@ const infoDiv = document.getElementById("info"),
         CPDiv.style.display = "none";
         infoDiv.style = "";
     },
-    cloneNavBar = () => {
-        const navClone = navBar.cloneNode(true);
-        navClone.id = "secondaryNavBar";
-        navClone.style.display = "none";
-        const titleClone = ([...navClone.childNodes].find(el => el.id === "title"));
-        titleClone.addEventListener("load", (event) => {
-            /**
-             * @type {Document}
-             */
-            const tcDocument = event.target.contentDocument;
-            /**
-             * @type {SVGElement}
-             */
-            const tcSVG = tcDocument.children[0];
-            tcSVG.style = "transition: all 0.4s; opacity: 1; cursor: pointer; transform: scale(1.0);"
-            tcSVG.addEventListener("click", scrollToTop);
-            tcSVG.addEventListener("mouseenter", (event) => {
-                /**
-                 * @type {SVGElement}
-                 */
-                const el = event.target;
-                el.style.opacity = 0.8;
-                el.style.transform = "scale(0.985)";
-            });
-            tcSVG.addEventListener("mouseleave", (event) => {
-                /**
-                 * @type {SVGElement}
-                 */
-                const el = event.target;
-                el.style.opacity = 1.0;
-                el.style.transform = "scale(1.0)";
-            });
-        })
-        window.secondaryNavBar = navClone;
-        document.body.appendChild(secondaryNavBar);
-    },
     refreshPage = () => {
         window.location.href = "/"
     },
@@ -137,17 +104,49 @@ const infoDiv = document.getElementById("info"),
             block: "start",
             inline: "nearest"
         });
+    },
+    clearSelection = () => {
+        if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+        } else if (document.selection) {
+            document.selection.empty();
+        }
+    },
+    copyString = (str) => {
+        let area = document.createElement("textarea");
+        area.style.display = "none";
+        area.value = str;
+        document.body.appendChild(area);
+        area.select();
+        area.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+        area.remove();
     };
 
 title.addEventListener("load", (event) => {
     event.target.contentDocument.getElementById("Layer_2_1_").onclick = refreshPage;
 });
 
+secondaryTitle.addEventListener("load", (event) => {
+    event.target.onclick = scrollToTop;
+});
+
+// document.querySelector("#secondaryTitleWrap").onclick = scrollToTop;
+
+[...document.querySelectorAll("#title")].forEach(el => {
+    el.oncopy = (e) => {
+        // console.log(e);
+        e.preventDefault();
+        clearSelection();
+        copyString("hitthemoney");
+    }
+})
+
 fetch("./imgs/social.svg")
     .then(response => response.text())
     .then(data => {
         social.outerHTML = data;
-        cloneNavBar();
+        secondarySocial.outerHTML = data;
     })
     .catch((error) => {
         console.error(error);
@@ -167,20 +166,20 @@ let onSecondaryNav = false;
 window.addEventListener("scroll", async (event) => {
     let navBox = navBar.getBoundingClientRect();
     // console.log(rootElem.scrollTop, navBox.height, rootElem.scrollTop > navBox.height);
-    if (window.secondaryNavBar) {
+    if (secondaryNavBar) {
         if (rootElem.scrollTop > navBox.height) {
             if (!onSecondaryNav) {
                 onSecondaryNav = true;
-                window.secondaryNavBar.style = `opacity: 0; transition: ${secNavTransTime}ms all;`;
+                secondaryNavBar.style = `opacity: 0; transition: ${secNavTransTime}ms all;`;
                 await sleepMS(0);
-                window.secondaryNavBar.style.opacity = 1;
+                secondaryNavBar.style.opacity = 1;
             }
         } else {
             if (onSecondaryNav) {
                 onSecondaryNav = false;
-                window.secondaryNavBar.style = `opacity: 0; transition: ${secNavTransTime}ms all;`;
+                secondaryNavBar.style = `opacity: 0; transition: ${secNavTransTime}ms all;`;
                 await sleepMS(secNavTransTime);
-                window.secondaryNavBar.style.display = "none";
+                secondaryNavBar.style.display = "none";
             }
         }
     }
