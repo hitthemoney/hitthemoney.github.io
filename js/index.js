@@ -5,6 +5,7 @@ const infoDiv = document.getElementById("info"),
     CPFooter = document.getElementById("CPFooter"),
     imgDesc = document.getElementById("imgDesc"),
     imgHolderImg = document.getElementById("imgHolderImg"),
+    imgHolderLink = document.getElementById("imgHolderLink"),
     imageHolder = document.getElementById("imageHolder"),
     popupHolder = document.getElementById("popupHolder"),
     navBar = document.getElementById("navBar"),
@@ -29,6 +30,12 @@ const infoDiv = document.getElementById("info"),
     showImagePopup = (elem) => {
         document.body.style.overflow = "hidden";
 
+        if (elem.getAttribute("link")) {
+            imgHolderLink.href = elem.getAttribute("link") || "";
+        } else {
+            imgHolderLink.removeAttribute("href");
+        }
+        
         imgHolderImg.src = elem.src;
         imgHolderImg.alt = elem.alt;
         imgDesc.innerHTML = elem.alt;
